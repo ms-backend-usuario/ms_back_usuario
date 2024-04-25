@@ -1,30 +1,20 @@
 import express from "express";
-import {config} from "dotenv"
+import { config } from "dotenv";
+import rutaMain from "./routes/routes.main.js";
+import rutaUser from "./routes/routes.user.js";//9 paso de routes.user.js -> importamos la ruta del usuario
 config();
-import {messageBrowse} from "./message/browser.js";
-
 
 const app = express();
+
+//middleware // paso 12 despues de hacer lo de new request
+app.use(express.json());
+app.use(express.urlencoded({ extended : true}));
+
 app.set("port", process.env.PORT || 3000)
 
-app.get("/", (req, res) => {
-    res.json({"respuesta":messageBrowse.principal})
-})
+//Rutas
+app.use("/",rutaMain);
+app.use("/api",rutaUser);//10 paso de routes.user.js _> usamos la ruta del usuario
 
-app.get("/home", (req, res) => {
-    res.json({"home":messageBrowse.home})
-})
-
-app.get("/galery", (req, res) => {
-    res.json({"galery":messageBrowse.galery})
-})
-
-app.get("/about", (req, res) => {
-    res.json({"about":messageBrowse.about})
-})
-
-app.get("/contact", (req, res) => {
-    res.json({"contact":messageBrowse.contact})
-})
 
 export default app;
