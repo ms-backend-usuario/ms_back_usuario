@@ -1,22 +1,19 @@
 import { Router } from "express"; //1 paso
-import { success } from "../message/browser.js" //6 paso
+import { crearUser, mostrarUser, modificarUser, eliminarUser } from "../controllers/controllers.user.js"
 
 const rutaUser = Router(); //2 paso
 
 //3 paso, empezar con las rutas -> get sirve para mostrar datos
-rutaUser.get("/user", (req, res)=>{
-    //7paso
-    success(req, res, 200, "Conectado con Usuario");
-})
+rutaUser.get("/user", mostrarUser);
 
 //11 paso -> post sirve para guardar o crear datos
-rutaUser.post("/user",(req, res) =>{
+rutaUser.post("/user", crearUser);
 
-    const dato = req.body;
-    console.log(dato);
+// 13 paso -> modificar
+rutaUser.put("/user", modificarUser);
 
-    success(req, res, 200, "Post: Ha ingresado un dato");
-})
+//14 paso -> para borrar
+rutaUser.delete("/user", eliminarUser);
 
 //4 paso en browser.js//
 
