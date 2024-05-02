@@ -20,7 +20,7 @@ export const success = (req, res, status=200, mensaje="")=>{
 export const error = (req, res, status=500, mensaje="")=>{
 
     res.status(status).json({
-        error:false,
+        error:true,
         status:status,
         body:mensaje
     })
