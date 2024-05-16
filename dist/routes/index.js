@@ -13,7 +13,7 @@ var _swaggerOutput = _interopRequireDefault(require("../tools/swagger-output.jso
 //paso 16 
 
 // import swaggerFile from '../tools/swagger-output.json' assert { type: "json" };
-
+console.log(__dirname);
 var ruta = (0, _express.Router)();
 ruta.use("/", _routesMain["default"]);
 ruta.use("/api", _routesUser["default"]);

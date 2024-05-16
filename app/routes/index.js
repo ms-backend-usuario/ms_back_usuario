@@ -5,7 +5,7 @@ import rutaUser from "./routes.user.js";
 import swaggerUi from 'swagger-ui-express';
 import swaggerFile from '../tools/swagger-output.json'
 // import swaggerFile from '../tools/swagger-output.json' assert { type: "json" };
-
+console.log(__dirname);
 const ruta = Router();
 
 ruta.use("/", rutaMain);
