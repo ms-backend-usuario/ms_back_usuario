@@ -70,7 +70,7 @@ var mostrarUser = exports.mostrarUser = /*#__PURE__*/function () {
           return _dbMsql["default"].query("CALL sp_MostrarUsuario(".concat(id, "); "));
         case 4:
           respuesta = _context2.sent;
-          (0, _browser.success)(req, res, 200, respuesta[0][0][0]);
+          (0, _browser.success)(req, res, 200, respuesta[0][0]);
           _context2.next = 11;
           break;
         case 8:
