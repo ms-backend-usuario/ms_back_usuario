@@ -25,3 +25,4 @@ rutaUser.post("/login", logueoUser);
 
 export default rutaUser; //8 paso
 //9,10 paso en app.js
+

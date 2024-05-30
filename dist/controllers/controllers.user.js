@@ -70,7 +70,7 @@ var mostrarUser = exports.mostrarUser = /*#__PURE__*/function () {
           return _dbMsql["default"].query("CALL sp_MostrarUsuario(".concat(id, "); "));
         case 4:
           respuesta = _context2.sent;
-          (0, _browser.success)(req, res, 200, respuesta[0]);
+          (0, _browser.success)(req, res, 200, respuesta[0][0][0]);
           _context2.next = 11;
           break;
         case 8:
@@ -98,7 +98,7 @@ var listarUser = exports.listarUser = /*#__PURE__*/function () {
           return _dbMsql["default"].query("CALL sp_ListarUsuario(); ");
         case 3:
           respuesta = _context3.sent;
-          (0, _browser.success)(req, res, 200, respuesta[0]);
+          (0, _browser.success)(req, res, 200, respuesta[0][0]);
           _context3.next = 10;
           break;
         case 7:
@@ -222,20 +222,17 @@ var logueoUser = exports.logueoUser = /*#__PURE__*/function () {
           token = _jsonwebtoken["default"].sign(payload, process.env.TOKEN_PRIVATEKEY, {
             expiresIn: process.env.TOKEN_EXPIRES_IN
           });
-          (0, _browser.success)(req, res, 200, {
-            token: token
-          });
-          _context6.next = 22;
+          _context6.next = 21;
           break;
-        case 19:
-          _context6.prev = 19;
+        case 18:
+          _context6.prev = 18;
           _context6.t0 = _context6["catch"](1);
           (0, _browser.error)(req, res, 500, "Error en el servidor, por favor intente de nuevo mas tarde");
-        case 22:
+        case 21:
         case "end":
           return _context6.stop();
       }
-    }, _callee6, null, [[1, 19]]);
+    }, _callee6, null, [[1, 18]]);
   }));
   return function logueoUser(_x11, _x12) {
     return _ref6.apply(this, arguments);
