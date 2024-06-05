@@ -1,5 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
+import cors from "cors";
 // import rutaMain from "./routes/routes.main.js";
 // import rutaUser from "./routes/routes.user.js";//9 paso de routes.user.js -> importamos la ruta del usuario
 import ruta from "./routes/index.js" //paso 15
@@ -10,6 +11,7 @@ const app = express();
 //middleware // paso 12 despues de hacer lo de new request
 app.use(express.json());
 app.use(express.urlencoded({ extended : true}));
+app.use(cors());
 
 app.set("port", process.env.PORT || 3000)
 
